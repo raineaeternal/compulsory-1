@@ -9,15 +9,9 @@ export default function NavBar() {
                 <img className="mr-4 size-16 rounded-lg" src="/FrontPunchIn.png" alt="Image of Raine's avatar" />
             </div>
             <div className="flex space-x-4 ibm-plex-mono-regular">
-                <div className="hover:text-white rounded-md p-4 btn-primary">
-                    <Link to="/ffxiv">Final Fantasy XIV</Link>
-                </div>
-                <div className="hover:text-white rounded-md p-4 btn-primary">
-                    <Link to="/smash" >Super Smash Bros.</Link>
-                </div>
-                <div className="hover:text-white rounded-md p-4 btn-primary">
-                    <Link to="/development" >Development Projects</Link>
-                </div>
+                <Link to="/ffxiv" className="hover:text-white rounded-md p-4 btn-primary">Final Fantasy XIV</Link>
+                <Link to="/smash" className="hover:text-white rounded-md p-4 btn-primary">Super Smash Bros.</Link>
+                <Link to="/development" className="hover:text-white rounded-md p-4 btn-primary">Development Projects</Link>
             </div>
         </div>
     );
