@@ -8,10 +8,7 @@ import FFXIV from './pages/ffxiv.tsx';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ffxiv" element={<FFXIV />} />
-      </Routes>
+      <Home />
     </BrowserRouter>
   </StrictMode>,
 )

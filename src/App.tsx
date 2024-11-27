@@ -1,16 +1,22 @@
 import { lazy } from "react";
 import "./App.scss";
+import { Route, Routes } from "react-router";
+import FFXIV from "./pages/ffxiv.tsx";
+const NavBar = lazy(async () => import("./components/navBar.tsx"));
 const FrontPage = lazy(async () => import("./pages/frontPage.tsx"));
+const Smash = lazy(async () => import("./pages/smash.tsx"));
+const Projects = lazy(async () => import("./pages/projects.tsx"));
 
 function Home() {
   return (
     <>
-      <FrontPage />
-      <section>
-        <h1>
-          This is everything I've done
-        </h1>
-      </section>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="/ffxiv" element={<FFXIV />} />
+        <Route path="/smash" element={<Smash />} />
+        <Route path="/development" element={<Projects />} />
+      </Routes>
     </>
   );
 }
