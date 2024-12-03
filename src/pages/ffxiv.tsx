@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 export default function FFXIV() {
     // Get data from FFLogs, but their API is confusing, so this is postponed until further notice.
