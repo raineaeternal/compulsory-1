@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router";
-import FFXIV from "./pages/ffxiv.tsx";
+const FFXIV = lazy(async () => import("./pages/ffxiv.tsx"));
 const NavBar = lazy(async () => import("./components/navBar.tsx"));
 const FrontPage = lazy(async () => import("./pages/frontPage.tsx"));
 const Smash = lazy(async () => import("./pages/smash.tsx"));
