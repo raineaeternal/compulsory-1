@@ -10,6 +10,7 @@ const Projects = lazy(async () => import("./pages/projects.tsx"));
 function Home() {
   return (
     <>
+    <div className="mx-auto min-w-[375px] md:max-w-[768px] lg:max-w-[1024px]">
       <NavBar />
       <Routes>
         <Route path="/" element={<FrontPage />} />
@@ -17,6 +18,7 @@ function Home() {
         <Route path="/smash" element={<Smash />} />
         <Route path="/development" element={<Projects />} />
       </Routes>
+    </div>
     </>
   );
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router";
 export default function Projects() {
     return (
         <>
-            <div className="flex flex-col justify-items-center mx-auto min-w-[375px] md:max-w-[768px] lg:max-w-[1024px]">
+            <div className="flex flex-col justify-items-center">
                 <div>
                     <h1 className="text-5xl ibm-plex-mono-regular">
                         Projects
@@ -17,12 +17,15 @@ export default function Projects() {
 
                 <section className="mt-4 mb-4">
                     <div>
-                        <h2 className="text-4xl ibm-plex-mono-regular">
-                            CompSaber
-                        </h2>
-                        <p className="text-sm ibm-plex-mono-light-italic">
-                            Name pending
-                        </p>
+                        <div className="flex-row">
+                            <h2 className="text-4xl ibm-plex-mono-regular">
+                                CompSaber
+                            </h2>
+                            <p className="text-sm ibm-plex-mono-light-italic">
+                                Name pending
+                            </p>
+                            <Link className="btn-secondary p-4 rounded-l text-black mx-auto" to="http://github.com/TournamentTools/compsaber-backend">Project Source</Link>
+                        </div>
 
                         <p className="text-xl ibm-plex-mono-regular">
                             Role: Backend/Database
@@ -35,7 +38,6 @@ export default function Projects() {
                             Quas, itaque ut deleniti corporis sunt illum ipsam hic eos obcaecati cum praesentium labore quibusdam possimus! Ratione consequuntur amet quis commodi enim eum a nam. Ab provident voluptatum nisi cupiditate!
                         </p>
 
-                        <Link className="btn-secondary p-4 rounded-l text-black mt-2" to="http://github.com/TournamentTools/compsaber-backend">Project Source</Link>
                     </div>
                 </section>
 

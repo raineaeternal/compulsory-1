@@ -6,8 +6,9 @@ export default function NavBar() {
     return (
         <div className="bg-transparent flex items-center justify-between p-2 shadow-lg">
             <div className="flex items-center">
-                <img className="mr-4 size-16 rounded-lg" src="/FrontPunchIn.png" alt="Image of Raine's avatar" />
+                <img className="mr-4 size-16 rounded-lg sm:[w-4 h4] md:[w-8 h-8] lg:[w-12 h-12]" src="/FrontPunchIn.png" alt="Image of Raine's avatar" />
             </div>
+
             <div className="flex space-x-4 ibm-plex-mono-regular">
                 <Link to="/ffxiv" className="hover:text-white rounded-md p-4 btn-primary">Final Fantasy XIV</Link>
                 <Link to="/smash" className="hover:text-white rounded-md p-4 btn-primary">Super Smash Bros.</Link>
