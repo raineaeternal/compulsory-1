@@ -13,7 +13,7 @@ export function NavBar() {
           <Link className="bg-[#DD1155] pt-2 pb-2 pr-4 pl-4 rounded-[8px]" href="/ffxiv">FFXIV</Link>
           <Link className="bg-[#DD1155] pt-2 pb-2 pr-4 pl-4 rounded-[8px]" href="/ffxiv">Projects</Link>
           <Link className="bg-[#DD1155] pt-2 pb-2 pr-4 pl-4 rounded-[8px]" href="/ffxiv">Smash</Link>
-          <Link className="bg-[#DD1155] pt-2 pb-2 pr-4 pl-4 rounded-[8px] hover:bg-transparent hover:transition-all ease-in-out duration-[250ms] outline-4 outline-[#DD115500] hover:outline-[#DD1155]" href="/ffxiv">FFXIV</Link>
+          <Link className="bg-primary pt-2 pb-2 pr-4 pl-4 rounded-[8px] transition-all ease-in-out duration-200 outline-4 outline outline-primary/0 hover:outline-primary/100 hover:bg-primary/10" href="/ffxiv">FFXIV</Link>   
         </div>
       </div>
     </>
