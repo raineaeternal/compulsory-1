@@ -13,7 +13,7 @@ export default {
         jet: "#353535",
         primary: "#DD1155",
         secondary: "#58FCEC",
-        tertiary: "#247BA0"
+        tertiary: "#247BA0",
       },
     },
   },
