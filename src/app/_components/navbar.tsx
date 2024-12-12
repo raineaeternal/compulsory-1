@@ -5,7 +5,7 @@ import Link from "next/link";
 export function NavBar() {
   return (
     <>
-      <div className="flex flex-row align-middle mx-auto w-full items-center justify-between bg-inherit bg-blend-darken top-0 fixed">
+      <div className="flex flex-row align-middle mx-auto w-full items-center justify-between bg-transparent bg-blend-darken top-0 sticky">
         <div className="m-4">
           <img className="mr-4 size-16 rounded-lg sm:[w-4 h4] md:[w-8 h-8] lg:[w-12 h-12]" src="/FrontPunchIn.png" alt="Punch in of Raine's FFXIV avatar" />
         </div>
