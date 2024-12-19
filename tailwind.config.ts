@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        sans: ["IBM Plex Mono", "var(--font-ibm-plex-mono)", ...fontFamily.sans],
       },
       colors: {
         snow: "#FFFFFF",

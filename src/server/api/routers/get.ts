@@ -17,13 +17,13 @@ async function getFFLogsBearerToken() {
 }
 
 export const fflogsRouter = createTRPCRouter({
-    fflogs: publicProcedure
+  getParse: publicProcedure
     .input(
       z.object({
         characterId: z.number(),
         name: z.string(),
         zoneRankingsDifficulty2: z.number(),
-        metric: z.enum(["dps", "rdps", "ndps", "adps", "cdps"]),
+        metric: z.string(),
         zoneId: z.number()
       })
     )
@@ -40,7 +40,7 @@ export const fflogsRouter = createTRPCRouter({
         }
       `;
 
-      const response = await fetch('https://www.fflogs.com/api/v2/client', {
+      return await fetch('https://www.fflogs.com/api/v2/client', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,11 +48,10 @@ export const fflogsRouter = createTRPCRouter({
         },
         body: JSON.stringify({
           query,
-          variables: {...input},
+          variables: { ...input },
         }),
+      }).then(async (data) => {
+        return await data.json();
       });
-
-      const data = await response.json();
-      return data;
     }),
 })

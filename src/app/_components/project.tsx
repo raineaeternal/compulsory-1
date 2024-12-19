@@ -1,6 +1,5 @@
 export const projects = [
     {
-
         title: "CompSaber",
         pending: false,
         description: "Tournament platform for Beat Saber",
