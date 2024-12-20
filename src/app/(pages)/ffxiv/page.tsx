@@ -14,12 +14,10 @@ export default async function FFXIV() {
         </div>
       </Hero>
 
-      <Link href="https://www.fflogs.com/character/id/20554285" target="_blank" rel="noopener noreferrer">
-        <h2>
-          Arcadion Savage
-        </h2>
-      </Link>
-      <ParseGrid title="Arcadion Savage" characterId={20554285} characterName="Raine Aeternal" zone={64} zoneRankingNumber={101} />
+      <ParseGrid title="Legacy Ultimate" characterId={20554285} characterName="Raine Aeternal" zone={59} zoneRankingNumber={100} />
+      <ParseGrid title="Arcadion Savage" characterId={20554285} characterName="Raine Aeternal" zone={62} zoneRankingNumber={101} />
+      <ParseGrid title="Anabaseios Savage" characterId={20554285} characterName="Raine Aeternal" zone={54} zoneRankingNumber={101} />
+      <ParseGrid title="Unreal" characterId={20554285} characterName="Raine Aeternal" zone={64} zoneRankingNumber={100} />
     </div>
   );
 }

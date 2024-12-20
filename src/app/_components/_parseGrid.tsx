@@ -1,7 +1,5 @@
 "use client";
-
 import { useEffect, useState } from 'react';
-import { api } from "~/trpc/server";
 
 type ParseGridProps = {
     title: string;
@@ -25,57 +23,56 @@ export default function ParseGrid({
     useEffect(() => {
         const fetchParse = async () => {
             try {
-                const response = await api.fflogs.getParse({
-                    characterId: characterId,
-                    name: characterName,
-                    zoneRankingsDifficulty2: zoneRankingNumber,
-                    metric: "rdps",
-                    zoneId: zone
+                const params = new URLSearchParams({
+                    characterId: characterId.toString(),
+                    characterName: encodeURIComponent(characterName),
+                    zoneRankingNumber: zoneRankingNumber.toString(),
+                    zone: zone.toString()
                 });
-                const rankings = response.data.characterData.character.zoneRankings.rankings;
-                setParse(rankings);
+
+                const response = await fetch(`/api/parse?${params}`);
+                const responseText = await response.text();
+
+                // Only try to parse if we actually got some content
+                if (!responseText.trim()) {
+                    throw new Error('Empty response from server');
+                }
+
+                let data;
+                try {
+                    data = JSON.parse(responseText);
+                } catch (parseError) {
+                    console.error('Parse error details:', parseError);
+                    throw new Error(`Failed to parse response: ${responseText.slice(0, 100)}...`);
+                }
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to fetch parse data');
+                }
+
+                setParse(data);
             } catch (err) {
+                console.error('Fetch error:', err);
                 setError(err instanceof Error ? err.message : 'Failed to fetch parse data');
             } finally {
                 setLoading(false);
             }
         };
-
         fetchParse();
     }, [characterId, characterName, zone, zoneRankingNumber]);
 
     if (loading) {
-        return (
-            <div className="w-full max-w-4xl mx-auto text-snow">
-                <div className="grid grid-cols-1 gap-4 p-4">
-                    <div className="bg-tertiary p-4 rounded-lg">
-                        Loading parse data...
-                    </div>
-                </div>
-            </div>
-        );
+        return <div>Loading...</div>;
     }
 
     if (error) {
-        return (
-            <div className="w-full max-w-4xl mx-auto text-snow">
-                <div className="grid grid-cols-1 gap-4 p-4">
-                    <div className="bg-tertiary p-4 rounded-lg text-red-500">
-                        Error: {error}
-                    </div>
-                </div>
-            </div>
-        );
+        return <div>Error: {error}</div>;
     }
 
-    if (!parse) {
+    if (!parse.data) {
         return (
             <div className="w-full max-w-4xl mx-auto text-snow">
-                <div className="grid grid-cols-1 gap-4 p-4">
-                    <div className="bg-tertiary p-4 rounded-lg">
-                        No parse data available
-                    </div>
-                </div>
+                No parse data available
             </div>
         );
     }
@@ -83,15 +80,15 @@ export default function ParseGrid({
     return (
         <div className="w-full max-w-4xl mx-auto text-snow">
             <div className="grid grid-cols-1 gap-4 p-4">
-                <div className="flex flex-col md:flex-row md:items-start md:gap-4">
-                    <pre className="bg-tertiary p-4 rounded-lg overflow-x-auto w-full">
-                        <h2>{title}</h2>
-                        Parses for {characterName} in {zone}:
-                        <span>
-                            <p>{parse.encounter.name}</p>
-                            <p>{parse.allStars.rank}</p>
-                        </span>
-                    </pre>
+                <div className="bg-tertiary p-4 rounded-lg">
+                    <h2 className="text-lg font-semibold mb-2">{title}</h2>
+                    <span className="flex flex-col">{parse.data.map((p: any) => {
+                        return (
+                            <div key={p.key}>
+                                <h3 className=" flex flex-row: font-semibold" key={p.key}>{p.encounter.name}:</h3> {p.rankPercent}
+                            </div>
+                        );
+                    })}</span>
                 </div>
             </div>
         </div>

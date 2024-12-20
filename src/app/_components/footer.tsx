@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <>
-            <div className="text-white fixed bottom-0 left-0 right-0 flex flex-col items-center align-middle justify-center bg-transparent bg-blend-darken">
+            <div className="text-white fixed bottom-0 left-[100%] flex flex-col items-center align-middle justify-center bg-jet/10 bg-blend-darken">
                 you can contact me using the following media
                 <div className="flex flex-row justify-start space-x-1 pb-2">
                     <p>
