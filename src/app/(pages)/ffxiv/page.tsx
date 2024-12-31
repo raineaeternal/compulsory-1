@@ -14,10 +14,12 @@ export default async function FFXIV() {
         </div>
       </Hero>
 
-      <ParseGrid title="Legacy Ultimate" characterId={20554285} characterName="Raine Aeternal" zone={59} zoneRankingNumber={100} />
-      <ParseGrid title="Arcadion Savage" characterId={20554285} characterName="Raine Aeternal" zone={62} zoneRankingNumber={101} />
-      <ParseGrid title="Anabaseios Savage" characterId={20554285} characterName="Raine Aeternal" zone={54} zoneRankingNumber={101} />
-      <ParseGrid title="Unreal" characterId={20554285} characterName="Raine Aeternal" zone={64} zoneRankingNumber={100} />
+      <section className="grid grid-cols-3 gap-4 pt-8">
+        <ParseGrid title="Legacy Ultimate" characterId={20554285} characterName="Raine Aeternal" zone={59} zoneRankingNumber={100} />
+        <ParseGrid title="Arcadion Savage" characterId={20554285} characterName="Raine Aeternal" zone={62} zoneRankingNumber={101} />
+        <ParseGrid title="Anabaseios Savage" characterId={20554285} characterName="Raine Aeternal" zone={54} zoneRankingNumber={101} />
+        <ParseGrid title="Unreal" characterId={20554285} characterName="Raine Aeternal" zone={64} zoneRankingNumber={100} />
+      </section>
     </div>
   );
 }

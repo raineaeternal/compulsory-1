@@ -79,17 +79,25 @@ export default function ParseGrid({
 
     return (
         <div className="w-full max-w-4xl mx-auto text-snow">
-            <div className="grid grid-cols-1 gap-4 p-4">
-                <div className="bg-tertiary p-4 rounded-lg">
-                    <h2 className="text-lg font-semibold mb-2">{title}</h2>
-                    <span className="flex flex-col">{parse.data.map((p: any) => {
-                        return (
-                            <div key={p.key}>
-                                <h3 className=" flex flex-row: font-semibold" key={p.key}>{p.encounter.name}:</h3> {p.rankPercent}
-                            </div>
-                        );
-                    })}</span>
-                </div>
+            <div className="bg-tertiary p-4 rounded-lg">
+                <h2 className="text-lg font-semibold mb-2">{title}</h2>
+                <span className="flex flex-col">{parse.data.map((p: any) => {
+                    return (
+                        <div key={p.key}>
+                            <h3 className=" flex flex-row font-semibold" key={p.key}>{p.encounter.name}:</h3> {
+                                p.rankPercent ? (
+                                    <div className="flex flex-row">
+                                        <span className="flex flex-row">{p.rankPercent}%</span>
+                                    </div>
+                                ) : (
+                                    <div className="flex flex-row">
+                                        <span className="flex flex-row">N/A</span>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    );
+                })}</span>
             </div>
         </div>
     );

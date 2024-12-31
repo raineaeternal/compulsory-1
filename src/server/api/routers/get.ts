@@ -54,4 +54,4 @@ export const fflogsRouter = createTRPCRouter({
         return await data.json();
       });
     }),
-})
+});
