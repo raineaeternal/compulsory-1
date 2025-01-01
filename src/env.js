@@ -1,20 +1,20 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+const { createEnv } = require("@t3-oss/env-nextjs");
+const { z } = require("zod");
 
-const processEnv: { [key: string]: string | undefined } = {
-  NODE_ENV: process.env.NODE_ENV,
-};
-
-export const env = createEnv({
+const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
   client: {},
-  runtimeEnv: processEnv,
+  runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
+  },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
   isServer: typeof window === "undefined",
-  experimental__runtimeEnv: processEnv
+  experimental__runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
+  }
 });
 
-export type Env = typeof env;
+module.exports = { env };
